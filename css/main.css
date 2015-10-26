@@ -2,7 +2,7 @@
 	color: red;
 }
 .reports, .administration{
-font-weight:bold; 
+font-weight:bold;
 background-color:F5F5F5;
 }
 .reports:hover, .administration:hover{
@@ -129,4 +129,7 @@ background: linear-gradient(bottom #DCDCDC 70%, #F5F5F5)
 background-color:#DCDCDC;
 opacity:0.8;
 cursor:pointer;
+}
+.contact{
+padding-left:6px;
 }
