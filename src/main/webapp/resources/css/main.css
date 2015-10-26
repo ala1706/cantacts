@@ -1,0 +1,14 @@
+.menu {
+  width:20%;
+  float:left;
+  height:300px;
+  border:1px solid red;
+}
+
+.content{
+  margin-left:10px;
+  width:75%;
+  float:left;
+  height:500px;
+  border:1px solid green;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+  <!-- see http://tomee.apache.org/containers-and-resources.html -->
+
+  <!-- activate next line to be able to deploy applications in apps -->
+  <!-- <Deployments dir="apps" /> -->
+
+  <Resource id="mySource" type="javax.sql.DataSource">
+    JdbcDriver com.mysql.jdbc.Driver
+    JdbcUrl jdbc:mysql://localhost:3306/resource_managment_new
+    UserName root
+    Password root
+    JtaManaged true
+  </Resource>
+
+  <Resource id="mySourceNonJTA" type="javax.sql.DataSource">
+    JdbcDriver com.mysql.jdbc.Driver
+    JdbcUrl jdbc:mysql://localhost:3306/resource_managment_new
+    UserName root
+    Password root
+    JtaManaged false
+  </Resource>
+
+</tomee>
