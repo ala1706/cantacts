@@ -1,0 +1,98 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/main.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function(){
+$('#mainCheck').change(function () {
+    if($(this).prop('checked')){
+        $('tbody tr td input[type="checkbox"]').each(function(){
+            $(this).prop('checked', true);
+        });
+    }else{
+        $('tbody tr td input[type="checkbox"]').each(function(){
+            $(this).prop('checked', false);
+        });
+    }
+});
+});
+</script>
+</head>
+<body>
+<div class="logo"><img src="C:\Users\alalicic\Desktop\logo.png.png"></img></div>
+<div class="uno">
+	<div class="menu">
+		<ul>
+		  <li class="reports">Reports</li>
+		  <li>Teams</li>
+		  <li>Projects</li>
+		  <li>Utilization</li>
+		  <li class="administration">Administration</li>
+		  <li>Employees</li>
+		  <li>Teams</li>
+		  <li>Projects</li>
+		</ul>	
+	</div>
+    
+	
+	<div class="table">
+	<h2 style="border-bottom:1px solid; text-align: left; font-family:Helvetica Neu">Administration|Employees</h2>
+		<table>
+			<tr><td colspan="5"></td></tr>
+			<tr>
+				<td><input type="checkbox" id="mainCheck"></input></td>
+				<th>First name<br><input type="text"></input></th>
+				<th>Last name<br><input type="text"></input></th>
+				<th>E-mail<br><input type="text"></input></th>
+				<th>Telephone<br><input type="text"></input></th>
+			</tr>
+			<tr class="hoverRow">
+				<td><input type="checkbox"></input></td>
+				<td>Aldin</td>
+				<td>Colic</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class="hoverRow">
+				<td><input type="checkbox"></input></td>
+				<td>Adnan</td>
+				<td>Alicic</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class="hoverRow">
+				<td><input type="checkbox"></input></td>
+				<td>Almin</td>
+				<td>Alicic</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class="hoverRow">
+				<td><input type="checkbox"></input></td>
+				<td>Midhat</td>
+				<td>Begic</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr class="hoverRow">
+				<td><input type="checkbox"></input></td>
+				<td>Alen</td>
+				<td>Helac</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr><td colspan="5"></td></tr>
+		</table>
+	</div>
+	<div class="comands">
+	<div class="buttonComands">
+	<input class="new" type="button" value="New"></input>
+	<input class="edit" type="button" value="Edit" disabled></input>
+	<input class="delete" type="button" value="Delete" disabled></input>
+	<input class="import" type="button" value="Import"></input>
+	</div>
+	</div>
+	<br style="clear:left"></br>
+</div>
+</body>
+</html>

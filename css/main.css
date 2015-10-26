@@ -1,0 +1,132 @@
+.test{
+	color: red;
+}
+.reports, .administration{
+font-weight:bold; 
+background-color:F5F5F5;
+}
+.reports:hover, .administration:hover{
+background-color:F5F5F5;
+cursor:default;
+color: black;
+}
+li{
+list-style-type: none;
+padding:4px;
+}
+li:hover{
+background-color:#1B98EB;
+color:#fff;
+cursor:pointer;
+}
+ul{
+border:1px solid #ccc;
+font-size:19px;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left:0px;
+border-radius: 5px;
+}
+body{
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+table{
+border:1px solid #e0e0e0;
+border-collapse:collapse;
+width:100%;
+}
+th, td{
+border:1px solid #ccc;
+}
+.menu{
+float:left;
+width:12%;
+}
+.table{
+float:left;
+margin-left:76px;
+width:79%;
+margin-top:-3px;
+text-align:center;
+}
+.uno{
+width:87%;
+margin-left:100px;
+margin-right:100px;
+margin-top:26px;
+}
+tr{
+height:35px;
+width:100%;
+
+}
+tr:nth-child(even){background-color: #F5F5F5;}
+tr:nth-child(odd);
+table tr td:first-child{
+text-align:center;
+}
+th{
+padding:3px;
+width:24%;
+}
+input{
+width:36%;
+border-radius: 4px;
+border-style: ridge;
+text-align: center;
+font-size: 21px;
+}
+td:first-child{
+text-align:center;
+width:3%;
+}
+tr:first-child{
+background-color:#F5F5F5;
+border-top-style: hidden;
+border-left-style: hidden;
+border-right-style: hidden;
+}
+tr:last-child{
+background-color:#F5F5F5;
+border-bottom-style: hidden;
+border-left-style: hidden;
+border-right-style: hidden;
+}
+.hoverRow:hover{
+background-color:#DCDCDC;
+cursor:pointer;
+}
+.comands{
+float: left;
+margin-left: 273px;
+margin-top: 170px;
+display:inline-flex;
+border-top:1px solid;
+width:79%;
+}
+.new, .edit, .delete, .import{
+float:left;
+    margin-right: 11px;
+    padding: 6px;
+    padding-left: 19px;
+    padding-right: 19px;
+    font-size: large;
+background-color:#F5F5F5;
+margin-top:9px;
+}
+.buttonComands{
+display:inline-flex;
+}
+.logo{
+margin-left: 122px;
+margin-top: 42px;
+}
+.edit:disabled, .delete:disabled{
+opacity:0.3;
+}
+.new:hover, .edit:enabled:hover, .delete:enabled:hover, .import:hover{
+background: linear-gradient(bottom #DCDCDC 70%, #F5F5F5)
+background-color:#DCDCDC;
+opacity:0.8;
+cursor:pointer;
+}
