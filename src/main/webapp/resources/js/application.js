@@ -31,3 +31,14 @@ function editEmployee(employeeIdValue){
   });
 
 }
+function removeEmployee(employeeIdValue){
+  $.ajax({
+      url: "employees",
+      type: "get",
+      data:{action:"remove",employeeId: employeeIdValue},
+      success: function(response) {
+        $("#content").html(response);
+      }
+  });
+
+}
