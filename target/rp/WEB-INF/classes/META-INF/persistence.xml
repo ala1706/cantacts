@@ -1,0 +1,11 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+  <persistence-unit name="myPU">
+    <jta-data-source>mySource</jta-data-source>
+    <non-jta-data-source>mySourceJTA</non-jta-data-source>
+    <properties>
+    <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>

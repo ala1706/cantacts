@@ -1,14 +1,10 @@
 package ba.resourceplanner.servlet;
 
 
-import java.lang.String;
-import java.util.Date;
-
-import javax.inject.Inject;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.IdClass;
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Employee {
