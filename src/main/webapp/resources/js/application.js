@@ -1,4 +1,5 @@
 function initEmployees(){
+
   $.ajax({
       url: "employees",
       type: "get",
@@ -42,3 +43,52 @@ function removeEmployee(employeeIdValue){
   });
 
 }
+
+function initTeams(){
+  $.ajax({
+      url: "teams",
+      type: "get",
+      data:{action:"teams"},
+      success: function(response) {
+        $("#content").html(response);
+      }
+  });
+
+}
+
+function addTeam(){
+  $.ajax({
+      url: "teams",
+      type: "get",
+      data:{action:"newTeam"},
+      success: function(response) {
+        $("#content").html(response);
+      }
+  });
+}
+
+function removeTeam(teamIdValue){
+  $.ajax({
+      url: "teams",
+      type: "get",
+      data:{action:"removeTeam",teamId: teamIdValue},
+      success: function(response) {
+        $("#content").html(response);
+      }
+  });
+
+}
+
+function editTeam(teamIdValue){
+  $.ajax({
+      url: "teams",
+      type: "get",
+      data:{action:"editTeam",teamId: teamIdValue},
+      success: function(response) {
+        $("#content").html(response);
+      }
+  });
+
+}
+// -------------------------
+

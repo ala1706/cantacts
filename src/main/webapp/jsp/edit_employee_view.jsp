@@ -1,7 +1,6 @@
-
 <div class="editEmployee">
 <h2 style="border-bottom:1px solid; text-align: left; font-family:Helvetica Neu">Administration | Employees | Employees Informations</h2>
-<div class="alert alert-danger" role="alert">Incorret e-mail format!</div>
+<div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-remove-circle"></span> Incorrect e-mail format!</div>
 <form action="employees" method="POST" class="form1">
     <fieldset class="fs" style="margin-bottom:2%">
         <legend class="leg">Basic informations</legend>
@@ -45,7 +44,7 @@
             </div>
     </fieldset>
     <fieldset class="fs" style="margin-bottom:2%">
-            <legend class="leg" style="width:19%">Additional informations</legend>
+            <legend class="leg" style="width:15%; min-width:218px;">Additional informations</legend>
 
                 <div style="float:left; width:100%; padding-left:0.4%">
                     <div style="float:left; width:100%; margin-bottom:32px">
@@ -59,7 +58,7 @@
                                 </div>
                                 <div class="basicInformationsDiv">
                                       <label value="Location">Location:</label><br>
-                                      <input name="location" type="text" value="${employee.location}">
+                                      <input class="location" name="location" type="text" value="${employee.location}">
                                       <input name="employeeId" type="hidden" value="${employee.id}">
                                 </div>
 
@@ -116,34 +115,4 @@
      </div>
 </form>
 </div>
-<script>
-$(function() {
-    $( ".datepicker" ).datepicker();
-    $( "#anim" ).change(function() {
-      $( ".datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
-    });
-});
-function clearForm(){
-$("fieldset").find("input").val("");
-}
-var re = /\S+@\S+\.\S+/;
-var str = $(".emailInput").val();
-var m = re.exec(str);
-
-$(".emailInput").change(function(){
-if (m!== null) {
-    if (m.index === re.lastIndex) {
-        re.lastIndex++;
-        $(".alert").show();
-        $(".save").prop("disabled", true);
-
-    }
-
-    // View your result using the m-variable.
-    // eg m[0] etc.
-}else{
-   $(".alert").hide();
-            $(".save").prop("enabled", true);
-
-}});
-  </script>
+<script type="text/javascript" src="resources/js/edit_employee_view.js"></script>

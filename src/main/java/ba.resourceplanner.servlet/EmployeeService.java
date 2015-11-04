@@ -1,12 +1,10 @@
 package ba.resourceplanner.servlet;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.List;
 
 /**
  * Created by aalicic on 25.10.2015.
@@ -28,6 +26,14 @@ public class EmployeeService {
     }else{
       entityManager_.merge(employee);
     }
+  }
+
+  public String deleteEmployee(String employeeId) {
+    Employee employee = entityManager_.find(Employee.class, employeeId);
+    if (employee != null) {
+      entityManager_.remove(employee);
+    }
+    return "/rp";
   }
 
   public Employee getEmployee(String employeeId) {
