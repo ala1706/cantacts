@@ -6,6 +6,8 @@
     <script type="text/javascript" src="resources/js/edit_employee_view.js"></script>
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="resources/js/application.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.tablesorter.js"></script>
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -61,4 +63,12 @@
 $(window).load(function() {
 	$(".loader").fadeOut("slow");
 })
+</script>
+<script>
+    $(document).ready(function()
+        {
+            $(".tableFilter").tablesorter();
+            $(".tableFilter").tablesorter( {sortList: [[0,0], [1,0]]} );
+        }
+    );
 </script>

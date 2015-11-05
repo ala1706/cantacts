@@ -2,11 +2,12 @@
 <div class="table">
 	<h2 style="border-bottom:1px solid; text-align: left; font-family:Helvetica Neu">Administration | Employees</h2>
 		<table class="tableFilter">
-			<tr>
-				<td colspan="6">
-				</td>
-			</tr>
 
+            <thead>
+            <tr>
+                <td colspan="6">
+                </td>
+            </tr>
 			<tr>
 				<th><input type="checkbox" id="mainCheck"></th>
 				<th style="text-align:center; ">Id <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
@@ -16,6 +17,8 @@
 				<th style="text-align:center">Telephone <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
 			</tr>
 
+            </thead>
+            <tbody>
             <c:forEach var="employee" items="${employees}">
 			<tr class="hoverRow"  onClick="editEmployee(${employee.id})">
 				<td><input type="checkbox"></input></td>
@@ -26,6 +29,7 @@
 				<td class="contact">${employee.telephone}</td>
 			</tr>
 			</c:forEach>
+			</tbody>
 			<tr><td colspan="6"></td></tr>
         </table>
 </div>
@@ -82,4 +86,12 @@ $(document).ready(function(){
   });
   });
 </script>
-
+<script type="text/javascript" src="resources/js/jquery.tablesorter.js"></script>
+<script>
+    $(document).ready(function()
+        {
+            $(".tableFilter").tablesorter();
+            $(".tableFilter").tablesorter( {sortList: [[0,0], [1,0]]} );
+        }
+    );
+</script>

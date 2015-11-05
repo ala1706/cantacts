@@ -94,7 +94,7 @@ function editTeam(teamIdValue){
 
 function initProjects(){
   $.ajax({
-      url: "employees",
+      url: "projects",
       type: "get",
       data:{action:"showProjects"},
       success: function(response) {
@@ -106,11 +106,38 @@ function initProjects(){
 
 function addProject(){
   $.ajax({
-      url: "employees",
+      url: "projects",
       type: "get",
       data:{action:"addProject"},
       success: function(response) {
         $("#content").html(response);
+        initProjects();
+      }
+  });
+
+}
+
+function editProject(projectIdValue){
+  $.ajax({
+      url: "projects",
+      type: "get",
+      data:{action:"editProject", projectId:projectIdValue},
+      success: function(response) {
+        $("#content").html(response);
+      }
+  });
+
+}
+
+
+function removeProject(projectIdValue){
+  $.ajax({
+      url: "projects",
+      type: "get",
+      data:{action:"removeProject", projectId:projectIdValue},
+      success: function(response) {
+        $("#content").html(response);
+        initProjects();
       }
   });
 

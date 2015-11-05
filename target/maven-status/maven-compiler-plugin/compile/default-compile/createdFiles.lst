@@ -1,6 +1,7 @@
 ba\resourceplanner\servlet\ProjectService.class
 ba\resourceplanner\servlet\Project.class
 ba\resourceplanner\servlet\Employee.class
+ba\resourceplanner\servlet\ProjectAction.class
 ba\resourceplanner\servlet\TeamAction.class
 ba\resourceplanner\servlet\EmployeeService.class
 ba\resourceplanner\servlet\TypeOfDivisionEnum.class
