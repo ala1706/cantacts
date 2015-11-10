@@ -87,7 +87,8 @@ $(document).ready(function(){
   });
 </script>
 <script type="text/javascript" src="resources/js/jquery.tablesorter.js"></script>
-<script>
+
+<%-- <script>
     $(document).ready(function()
         {
             $(".tableFilter").tablesorter();
@@ -95,3 +96,4 @@ $(document).ready(function(){
         }
     );
 </script>
+--%>

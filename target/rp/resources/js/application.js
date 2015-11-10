@@ -74,6 +74,7 @@ function removeTeam(teamIdValue){
       data:{action:"removeTeam",teamId: teamIdValue},
       success: function(response) {
         $("#content").html(response);
+        initTeams();
       }
   });
 
@@ -111,7 +112,7 @@ function addProject(){
       data:{action:"addProject"},
       success: function(response) {
         $("#content").html(response);
-        initProjects();
+
       }
   });
 
@@ -138,6 +139,18 @@ function removeProject(projectIdValue){
       success: function(response) {
         $("#content").html(response);
         initProjects();
+      }
+  });
+
+}
+
+function initReportsTeams(){
+  $.ajax({
+      url: "teams",
+      type: "get",
+      data:{action:"showReportsTeams"},
+      success: function(response) {
+        $("#content").html(response);
       }
   });
 

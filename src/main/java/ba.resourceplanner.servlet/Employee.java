@@ -1,10 +1,8 @@
 package ba.resourceplanner.servlet;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -41,8 +39,17 @@ public class Employee {
 
   private String companyId_;
 
+  private boolean teamLeaderCheck_;
 
-  public Employee(String id, String firstName, String lastName, String email, String telephone, String title, String dateOfBirth, String employedSince, String location, String street, String place, String zip, String extern, String svnr, String companyId) {
+  private boolean projectManagerCheck_;
+
+  @ElementCollection(targetClass = UserRole.class, fetch = FetchType.LAZY)
+  @CollectionTable(name = "user2role")
+  private List<UserRole> userRoles;
+
+
+
+  public Employee(String id, String firstName, String lastName, String email, String telephone, String title, String dateOfBirth, String employedSince, String location, String street, String place, String zip, String extern, String svnr, String companyId, String teamLeaderCheck, String projectManagerCheck) {
     this.firstName_ = firstName;
     this.lastName_ = lastName;
     this.email_ = email;
@@ -57,9 +64,29 @@ public class Employee {
     this.extern_ = extern;
     this.svnr_ = svnr;
     this.companyId_ = companyId;
+
+    this.teamLeaderCheck_=Boolean.valueOf(teamLeaderCheck);
+    this.projectManagerCheck_=Boolean.valueOf(projectManagerCheck);
     if (id != null && id != "") {
       this.id_ = Integer.parseInt(id);
     }
+  }
+
+
+  public boolean isTeamLeaderCheck() {
+    return teamLeaderCheck_;
+  }
+
+  public void setTeamLeaderCheck(boolean teamLeaderCheck) {
+    this.teamLeaderCheck_ = teamLeaderCheck;
+  }
+
+  public boolean isProjecktManagerCheck() {
+    return projectManagerCheck_;
+  }
+
+  public void setProjecktManagerCheck(boolean projecktManagerCheck) {
+    this.projectManagerCheck_ = projecktManagerCheck;
   }
 
   public String getFirstName() {

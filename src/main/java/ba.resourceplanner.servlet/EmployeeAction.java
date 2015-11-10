@@ -56,7 +56,9 @@ public class EmployeeAction extends HttpServlet{
     Employee employee = new Employee(httpServletRequest.getParameter("employeeId"), httpServletRequest.getParameter("firstName"), httpServletRequest.getParameter("lastName"),
             httpServletRequest.getParameter("email"), httpServletRequest.getParameter("telephone"), httpServletRequest.getParameter("title"), httpServletRequest.getParameter("dateOfBirth"),
             httpServletRequest.getParameter("employedSince"), httpServletRequest.getParameter("location"), httpServletRequest.getParameter("street"), httpServletRequest.getParameter("place"),
-            httpServletRequest.getParameter("zip"), httpServletRequest.getParameter("extern"), httpServletRequest.getParameter("svnr"), httpServletRequest.getParameter("companyId"));
+            httpServletRequest.getParameter("zip"), httpServletRequest.getParameter("extern"), httpServletRequest.getParameter("svnr"), httpServletRequest.getParameter("companyId"),
+            httpServletRequest.getParameter("userRole2"),httpServletRequest.getParameter("userRole3"));
+
 
     employeeService_.saveEmployee(employee);
     httpServletResponse.sendRedirect("/rp");

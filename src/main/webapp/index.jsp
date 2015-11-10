@@ -24,7 +24,7 @@
      <div class="menu">
         <ul>
           <li class="reports">Reports</li>
-          <li><i class="fa fa-search"></i> Teams</li>
+          <li onClick="initReportsTeams()"><i class="fa fa-search"></i> Teams</li>
           <li><i class="fa fa-search"></i> Projects</li>
           <li><i class="fa fa-search"></i> Utilization</li>
           <li class="administration">Administration</li>
