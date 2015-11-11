@@ -102,9 +102,9 @@
                     </div>
                     <div style="float:left; margin-top:2%; width:100%">
                         <label for="userRole">User roles: </label>
-                        <input type="checkbox" name="userRole" class="userRole">Employee</input>
-                        <input type="checkbox" name="userRole" class="userRole">Team leader</input>
-                        <input type="checkbox" name="userRole" class="userRole">Project manager</input>
+                        <input type="checkbox" name="userRole1" class="userRole">Employee</input>
+                        <input type="checkbox" name="userRole2" class="userRole"  value="${employee.teamLeaderCheck}">Team leader</input>
+                        <input type="checkbox" name="userRole3" class="userRole" value="${employee.projectManagerCheck}">Project manager</input>
                     </div>
 
                 </div>

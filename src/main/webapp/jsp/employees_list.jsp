@@ -4,7 +4,7 @@
 		<table class="tableFilter">
 
             <thead>
-            <tr>
+            <tr class="freeRow">
                 <td colspan="6">
                 </td>
             </tr>
@@ -30,7 +30,7 @@
 			</tr>
 			</c:forEach>
 			</tbody>
-			<tr><td colspan="6"></td></tr>
+			<tr style="background-color:#F5F5F5"><td colspan="6"></td></tr>
         </table>
 </div>
  <script>

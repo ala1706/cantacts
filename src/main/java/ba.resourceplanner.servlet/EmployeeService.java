@@ -20,6 +20,12 @@ public class EmployeeService {
     return namedQuery.getResultList();
   }
 
+  public List<Employee> getNotAssignedEmployees(Integer teamId) {
+    Query namedQuery = entityManager_.createQuery("select e from Employee e left join e.teams_ t where t.id_ <> :teamId");
+    namedQuery.setParameter("teamId", teamId);
+    return namedQuery.getResultList();
+  }
+
   public void saveEmployee(Employee employee){
     if(employee.getId()==null){
       entityManager_.persist(employee);
@@ -36,9 +42,9 @@ public class EmployeeService {
     return "/rp";
   }
 
-  public Employee getEmployee(String employeeId) {
-    Query namedQuery = entityManager_.createQuery("select e from Employee e where e.id_ = :id");
-    namedQuery.setParameter("id", Integer.parseInt(employeeId));
+  public Employee getEmployee(Integer employeeId) {
+    Query namedQuery = entityManager_.createQuery("select e from Employee e where e.id = :id");
+    namedQuery.setParameter("id", employeeId);
     return (Employee) namedQuery.getSingleResult();
   }
 }

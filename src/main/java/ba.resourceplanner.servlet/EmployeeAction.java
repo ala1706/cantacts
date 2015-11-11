@@ -38,7 +38,7 @@ public class EmployeeAction extends HttpServlet{
   }
 
   private String editEmployee(HttpServletRequest httpServletRequest, String employeeId) {
-    httpServletRequest.setAttribute("employee", employeeService_.getEmployee(employeeId));
+    httpServletRequest.setAttribute("employee", employeeService_.getEmployee(Integer.valueOf(employeeId)));
     return "jsp/edit_employee_view.jsp";
   }
 
@@ -53,11 +53,19 @@ public class EmployeeAction extends HttpServlet{
 
   @Override
   protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+    Boolean teamLeaderCheck = null;
+    if(httpServletRequest.getParameter("userRole2")!=null){
+      teamLeaderCheck = Boolean.valueOf(httpServletRequest.getParameter("userRole2"));
+    }
+    Boolean projectManagerCheck = null;
+    if(httpServletRequest.getParameter("userRole3")!=null){
+      projectManagerCheck = Boolean.valueOf(httpServletRequest.getParameter("userRole3"));
+    }
     Employee employee = new Employee(httpServletRequest.getParameter("employeeId"), httpServletRequest.getParameter("firstName"), httpServletRequest.getParameter("lastName"),
             httpServletRequest.getParameter("email"), httpServletRequest.getParameter("telephone"), httpServletRequest.getParameter("title"), httpServletRequest.getParameter("dateOfBirth"),
             httpServletRequest.getParameter("employedSince"), httpServletRequest.getParameter("location"), httpServletRequest.getParameter("street"), httpServletRequest.getParameter("place"),
             httpServletRequest.getParameter("zip"), httpServletRequest.getParameter("extern"), httpServletRequest.getParameter("svnr"), httpServletRequest.getParameter("companyId"),
-            httpServletRequest.getParameter("userRole2"),httpServletRequest.getParameter("userRole3"));
+            teamLeaderCheck,projectManagerCheck );
 
 
     employeeService_.saveEmployee(employee);

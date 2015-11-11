@@ -2,6 +2,7 @@ package ba.resourceplanner.servlet;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -9,206 +10,221 @@ public class Employee {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id_;
+  private Integer id;
 
-  private String firstName_;
+  private String firstName;
 
-  private String lastName_;
+  private String lastName;
 
-  private String email_;
+  private String email;
 
-  private String telephone_;
+  private String telephone;
 
-  private String title_;
+  private String title;
 
-  private String dateOfBirth_;
+  private String dateOfBirth;
 
-  private String employedSince_;
+  private String employedSince;
 
-  private String location_;
+  private String location;
 
-  private String street_;
+  private String street;
 
-  private String place_;
+  private String place;
 
-  private String zip_;
+  private String zip;
 
-  private String extern_;
+  private String extern;
 
-  private String svnr_;
+  private String svnr;
 
-  private String companyId_;
+  private String companyId;
 
-  private boolean teamLeaderCheck_;
+  private Boolean teamLeaderCheck;
 
-  private boolean projectManagerCheck_;
+  private Boolean projectManagerCheck;
 
-  @ElementCollection(targetClass = UserRole.class, fetch = FetchType.LAZY)
-  @CollectionTable(name = "user2role")
-  private List<UserRole> userRoles;
-
+  @ManyToMany
+  private List<Team> teams=new ArrayList<Team>();
 
 
-  public Employee(String id, String firstName, String lastName, String email, String telephone, String title, String dateOfBirth, String employedSince, String location, String street, String place, String zip, String extern, String svnr, String companyId, String teamLeaderCheck, String projectManagerCheck) {
-    this.firstName_ = firstName;
-    this.lastName_ = lastName;
-    this.email_ = email;
-    this.telephone_=telephone;
-    this.title_ = title;
-    this.dateOfBirth_ = dateOfBirth;
-    this.employedSince_ = employedSince;
-    this.location_ = location;
-    this.street_ = street;
-    this.place_ = place;
-    this.zip_ = zip;
-    this.extern_ = extern;
-    this.svnr_ = svnr;
-    this.companyId_ = companyId;
+  @ManyToMany
+  private List<Project> projects=new ArrayList<Project>();
 
-    this.teamLeaderCheck_=Boolean.valueOf(teamLeaderCheck);
-    this.projectManagerCheck_=Boolean.valueOf(projectManagerCheck);
-    if (id != null && id != "") {
-      this.id_ = Integer.parseInt(id);
-    }
+
+
+  public Employee(String id, String firstName, String lastName, String email, String telephone, String title, String dateOfBirth, String employedSince,
+                  String location, String street, String place, String zip, String extern, String svnr, String companyId, Boolean teamLeaderCheck, Boolean projectManagerCheck ) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.telephone = telephone;
+    this.title = title;
+    this.dateOfBirth = dateOfBirth;
+    this.employedSince = employedSince;
+    this.location = location;
+    this.street = street;
+    this.place = place;
+    this.zip = zip;
+    this.extern = extern;
+    this.svnr = svnr;
+    this.companyId = companyId;
+    this.teamLeaderCheck = teamLeaderCheck;
+    this.projectManagerCheck = projectManagerCheck;
   }
 
-
-  public boolean isTeamLeaderCheck() {
-    return teamLeaderCheck_;
-  }
-
-  public void setTeamLeaderCheck(boolean teamLeaderCheck) {
-    this.teamLeaderCheck_ = teamLeaderCheck;
-  }
-
-  public boolean isProjecktManagerCheck() {
-    return projectManagerCheck_;
-  }
-
-  public void setProjecktManagerCheck(boolean projecktManagerCheck) {
-    this.projectManagerCheck_ = projecktManagerCheck;
-  }
 
   public String getFirstName() {
-    return firstName_;
+    return firstName;
   }
 
   public void setFirstName(String firstName) {
-    firstName_ = firstName;
+    this.firstName = firstName;
   }
 
   public String getLastName() {
-    return lastName_;
+    return lastName;
   }
 
   public void setLastName(String lastName) {
-    lastName_ = lastName;
+    this.lastName = lastName;
   }
 
   public Integer getId() {
-    return id_;
+    return id;
   }
 
   public void setId(Integer id) {
-    id_ = id;
+    this.id = id;
   }
 
 
   public String getEmail() {
-    return email_;
+    return email;
   }
 
   public void setEmail(String email) {
-    email_ = email;
+    this.email = email;
   }
 
   public String getTelephone() {
-    return telephone_;
+    return telephone;
   }
 
   public void setTelephone(String telephone) {
-    telephone_ = telephone;
+    this.telephone = telephone;
   }
 
 
   public String getTitle() {
-    return title_;
+    return title;
   }
 
   public void setTitle(String title) {
-    title_ = title;
+    this.title = title;
   }
 
   public String getDateOfBirth() {
-    return dateOfBirth_;
+    return dateOfBirth;
   }
 
   public void setDateOfBirth(String dateOfBirth) {
-    dateOfBirth_ = dateOfBirth;
+    this.dateOfBirth = dateOfBirth;
   }
 
   public String getEmployedSince() {
-    return employedSince_;
+    return employedSince;
   }
 
   public void setEmployedSince(String employedSince) {
-    employedSince_ = employedSince;
+    this.employedSince = employedSince;
   }
 
   public String getLocation() {
-    return location_;
+    return location;
   }
 
   public void setLocation(String location) {
-    location_ = location;
+    this.location = location;
   }
 
   public String getStreet() {
-    return street_;
+    return street;
   }
 
   public void setStreet(String street) {
-    street_ = street;
+    this.street = street;
   }
 
   public String getPlace() {
-    return place_;
+    return place;
   }
 
   public void setPlace(String place) {
-    place_ = place;
+    this.place = place;
   }
 
   public String getZip() {
-    return zip_;
+    return zip;
   }
 
   public void setZip(String zip) {
-    zip_ = zip;
+    this.zip = zip;
   }
 
   public String getExtern() {
-    return extern_;
+    return extern;
   }
 
   public void setExtern(String extern) {
-    extern_ = extern;
+    this.extern = extern;
   }
 
   public String getSvnr() {
-    return svnr_;
+    return svnr;
   }
 
   public void setSvnr(String svnr) {
-    svnr_ = svnr;
+    this.svnr = svnr;
   }
 
   public String getCompanyId() {
-    return companyId_;
+    return companyId;
   }
 
   public void setCompanyId(String companyId) {
-    companyId_ = companyId;
+    this.companyId = companyId;
   }
 
+  public List<Team> getTeams() {
+    return teams;
+  }
+
+  public void setTeams(List<Team> teams_) {
+    this.teams = teams_;
+  }
+
+  public Boolean getTeamLeaderCheck() {
+    return teamLeaderCheck;
+  }
+
+  public void setTeamLeaderCheck(Boolean teamLeaderCheck) {
+    this.teamLeaderCheck = teamLeaderCheck;
+  }
+
+  public Boolean getProjectManagerCheck() {
+    return projectManagerCheck;
+  }
+
+  public void setProjectManagerCheck(Boolean projectManagerCheck) {
+    this.projectManagerCheck = projectManagerCheck;
+  }
+
+  public List<Project> getProjects() {
+    return projects;
+  }
+
+  public void setProjects(List<Project> projects) {
+    this.projects = projects;
+  }
 }
