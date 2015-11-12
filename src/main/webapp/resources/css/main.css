@@ -360,3 +360,13 @@ cursor:pointer;
 background-color:#A0A0A0;
 color:#fff;
 }
+#editAvailibilityDiv{
+width:24%;
+position:absolute;
+top:254px;
+left: 40%;
+background-color:#fff;
+-webkit-box-shadow: -6px 11px 20px 0px rgba(0,0,0,0.33);
+-moz-box-shadow: -6px 11px 20px 0px rgba(0,0,0,0.33);
+box-shadow: -6px 11px 20px 0px rgba(0,0,0,0.33);
+}
