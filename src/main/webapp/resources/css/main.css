@@ -333,16 +333,6 @@ position: absolute;
     left: 21%;
     display: block;
 }
-.editAvailibilityDiv{
-width:42%;
-min-width:403px;
-max-width:780px;
-height:244px;
-max-height:244px;
-min-height:244px;
-border:1px solid #ccc;
-border-radius:4px;
-}
 .save.saveAvailibility{
 padding-left:9px;
 padding-right:9px;
@@ -369,4 +359,10 @@ background-color:#fff;
 -webkit-box-shadow: -6px 11px 20px 0px rgba(0,0,0,0.33);
 -moz-box-shadow: -6px 11px 20px 0px rgba(0,0,0,0.33);
 box-shadow: -6px 11px 20px 0px rgba(0,0,0,0.33);
+border:1px solid #ccc;
+border-radius:4px;
+min-width:403px;
+max-width:780px;
+z-index:1;
+min-height:309px;
 }
