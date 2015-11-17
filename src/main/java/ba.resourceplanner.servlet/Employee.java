@@ -44,6 +44,8 @@ public class Employee {
 
   private Boolean projectManagerCheck;
 
+
+
   @ManyToMany
   private List<Team> teams=new ArrayList<Team>();
 
@@ -52,26 +54,7 @@ public class Employee {
   private List<Project> projects=new ArrayList<Project>();
 
 
-
-  public Employee(String id, String firstName, String lastName, String email, String telephone, String title, String dateOfBirth, String employedSince,
-                  String location, String street, String place, String zip, String extern, String svnr, String companyId, Boolean teamLeaderCheck, Boolean projectManagerCheck ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.telephone = telephone;
-    this.title = title;
-    this.dateOfBirth = dateOfBirth;
-    this.employedSince = employedSince;
-    this.location = location;
-    this.street = street;
-    this.place = place;
-    this.zip = zip;
-    this.extern = extern;
-    this.svnr = svnr;
-    this.companyId = companyId;
-    this.teamLeaderCheck = teamLeaderCheck;
-    this.projectManagerCheck = projectManagerCheck;
-  }
+  public Employee(){}
 
 
   public String getFirstName() {
@@ -227,4 +210,7 @@ public class Employee {
   public void setProjects(List<Project> projects) {
     this.projects = projects;
   }
+
+
+
 }

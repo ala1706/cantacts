@@ -9,20 +9,18 @@
                 </td>
             </tr>
 			<tr>
-				<th><input type="checkbox" id="mainCheck"></th>
-				<th style="text-align:center; ">Id <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
-				<th style="text-align:center">First name <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
-				<th style="text-align:center">Last name <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
-				<th style="text-align:center">E-mail <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
-				<th style="text-align:center">Telephone <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
+				<th id="thCheckbox"><input type="checkbox" id="mainCheck"></th>
+				<th class="tableHeader" style="text-align:center">First name <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
+				<th class="tableHeader" style="text-align:center">Last name <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
+				<th class="tableHeader" style="text-align:center">E-mail <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
+				<th class="tableHeader" style="text-align:center">Telephone <i class="fa fa-sort"></i><br><input type="text" class="filterSearchInput"></th>
 			</tr>
 
             </thead>
             <tbody>
             <c:forEach var="employee" items="${employees}">
-			<tr class="hoverRow"  onClick="editEmployee(${employee.id})">
-				<td><input type="checkbox"></input></td>
-				<td class="contact" value"edit">${employee.id}</td>
+			<tr class="hoverRow">
+				<td><input type="checkbox" class="employeeIdCheckbox" value="${employee.id}"></input></td>
 				<td class="contact">${employee.firstName}</td>
 				<td class="contact">${employee.lastName}</td>
 				<td class="contact">${employee.email}</td>
@@ -33,6 +31,14 @@
 			<tr style="background-color:#F5F5F5"><td colspan="6"></td></tr>
         </table>
 </div>
+
+    <div class="footer-bar-buttons">
+         <input class="standard-button" type="button" onClick="addEmployee()" value="New"></input>
+         <input id="editEmployeeButton" class="standard-button" type="button" value="Edit" onClick="editEmployee()" disabled></input>
+         <input id="deleteEmployeeButton" class="standard-button" type="button" value="Delete" onClick="removeEmployee()" disabled></input>
+         <input class="standard-button" type="button" value="Import"></input>
+    </div>
+
  <script>
     $(document).ready(function(){
     $('#mainCheck').change(function () {
@@ -97,3 +103,17 @@ $(document).ready(function(){
     );
 </script>
 --%>
+<script>
+
+$(".employeeIdCheckbox").click(function(event){
+    if(event.target.checked){
+        $(this).closest("tr").css({"background":"#128192", "color":"#fff"})
+        $("#editEmployeeButton").attr("disabled", false);
+        $("#deleteEmployeeButton").attr("disabled", false);
+    }else{
+        $(this).closest("tr").css({"background": "inherit", "color":"inherit"})
+        $("#editEmployeeButton").attr("disabled", true);
+        $("#deleteEmployeeButton").attr("disabled", true);
+    }
+});
+</script>

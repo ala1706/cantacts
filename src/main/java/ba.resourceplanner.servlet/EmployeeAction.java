@@ -38,7 +38,7 @@ public class EmployeeAction extends HttpServlet{
   }
 
   private String editEmployee(HttpServletRequest httpServletRequest, String employeeId) {
-    httpServletRequest.setAttribute("employee", employeeService_.getEmployee(Integer.valueOf(employeeId)));
+    httpServletRequest.setAttribute("employee", employeeService_.getEmployee(Integer.parseInt(employeeId)));
     return "jsp/edit_employee_view.jsp";
   }
 
@@ -53,22 +53,35 @@ public class EmployeeAction extends HttpServlet{
 
   @Override
   protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-    Boolean teamLeaderCheck = null;
-    if(httpServletRequest.getParameter("userRole2")!=null){
-      teamLeaderCheck = Boolean.valueOf(httpServletRequest.getParameter("userRole2"));
+
+    Integer employeeId = null;
+    if(httpServletRequest.getParameter("employeeId")!=null & httpServletRequest.getParameter("employeeId")!=""){
+      employeeId = Integer.valueOf(httpServletRequest.getParameter("employeeId"));
     }
-    Boolean projectManagerCheck = null;
-    if(httpServletRequest.getParameter("userRole3")!=null){
-      projectManagerCheck = Boolean.valueOf(httpServletRequest.getParameter("userRole3"));
-    }
-    Employee employee = new Employee(httpServletRequest.getParameter("employeeId"), httpServletRequest.getParameter("firstName"), httpServletRequest.getParameter("lastName"),
-            httpServletRequest.getParameter("email"), httpServletRequest.getParameter("telephone"), httpServletRequest.getParameter("title"), httpServletRequest.getParameter("dateOfBirth"),
-            httpServletRequest.getParameter("employedSince"), httpServletRequest.getParameter("location"), httpServletRequest.getParameter("street"), httpServletRequest.getParameter("place"),
-            httpServletRequest.getParameter("zip"), httpServletRequest.getParameter("extern"), httpServletRequest.getParameter("svnr"), httpServletRequest.getParameter("companyId"),
-            teamLeaderCheck,projectManagerCheck );
+
+      Boolean teamLeaderUserRole = Boolean.valueOf(httpServletRequest.getParameter("teamLeaderUserRole"));
 
 
-    employeeService_.saveEmployee(employee);
+      Boolean projectManagerUserRole = Boolean.valueOf(httpServletRequest.getParameter("projectManagerUserRole"));
+
+
+    String firstName =  httpServletRequest.getParameter("firstName");
+    String lastName =  httpServletRequest.getParameter("lastName");
+    String email = httpServletRequest.getParameter("email");
+    String telephone =  httpServletRequest.getParameter("telephone");
+    String title = httpServletRequest.getParameter("title");
+    String dateOfBirth = httpServletRequest.getParameter("dateOfBirth");
+    String employedSince = httpServletRequest.getParameter("employedSince");
+    String location = httpServletRequest.getParameter("location");
+    String street = httpServletRequest.getParameter("street");
+    String place = httpServletRequest.getParameter("place");
+    String zip = httpServletRequest.getParameter("zip");
+    String extern = httpServletRequest.getParameter("extern");
+    String svnr = httpServletRequest.getParameter("svnr");
+    String companyId = httpServletRequest.getParameter("companyId");
+
+
+    employeeService_.saveEmployee(employeeId, firstName, lastName, email, telephone, title, dateOfBirth, employedSince, location, street, place, zip, extern, svnr, companyId, teamLeaderUserRole, projectManagerUserRole);
     httpServletResponse.sendRedirect("/rp");
   }
 
